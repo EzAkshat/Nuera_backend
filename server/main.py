@@ -19,8 +19,9 @@ import json
 from fastapi.security import OAuth2PasswordBearer
 import speech_recognition as sr
 from fastapi.websockets import WebSocketState
-
+from websocket_manager import active_connections, broadcast_reminder
 from zoneinfo import ZoneInfo
+
 IST = ZoneInfo("Asia/Kolkata")
 
 # FastAPI app setup
@@ -34,9 +35,6 @@ logging.basicConfig(
     handlers=[logging.StreamHandler()]
 )
 logger = logging.getLogger(__name__)
-
-# WebSocket connection management
-active_connections: list[tuple[str, WebSocket]] = []
 
 # CORS middleware
 app.add_middleware(
@@ -124,16 +122,6 @@ async def generate_and_send_audio(websocket: WebSocket, chat_id: str, message_id
             logger.info(f"WebSocket disconnected, cannot send audio_ready for message {message_id}")
     except Exception as e:
         logger.error(f"Error generating audio for message {message_id}: {e}", exc_info=True)
-
-# Broadcast reminder function
-async def broadcast_reminder(user_id: str, reminder_data: dict):
-    for conn_user_id, connection in active_connections[:]:
-        if conn_user_id == user_id:
-            try:
-                await connection.send_json(reminder_data)
-            except Exception as e:
-                logger.error(f"Error sending to WebSocket for user {user_id}: {e}")
-                active_connections.remove((conn_user_id, connection))
 
 # WebSocket endpoint for reminders
 @app.websocket("/ws/reminders")
