@@ -8,5 +8,5 @@ python-dotenv
 httpx
 apscheduler
 requests
-pip install pydantic[email]
+pydantic[email]
 elevenlabs
