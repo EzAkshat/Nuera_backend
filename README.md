@@ -1,27 +1,28 @@
 <div align="center">
 
+<br />
+
 # 🚀 Nuera Backend
 
 **Real-time AI chat backend with voice capabilities**
-
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=13&pause=2000&color=6B7280&center=true&vCenter=true&repeat=true&width=500&lines=FastAPI+%2B+WebSocket+%2B+Gemini+2.0+Flash;Voice+I%2FO+%E2%80%94+TTS+%2B+STT;Smart+Reminders+with+AI+follow-up;JWT+Auth+%2B+MongoDB+%2B+Motor" alt="Typing SVG" />
-
-
-[Overview](#-overview) · [Features](#-core-features) · [Stack](#-tech-stack) · [Quickstart](#-quick-start) · [Structure](#-project-structure) · [API](#-api-overview) · [How It Works](#-how-it-works) · [Security](#️-security)
 
 <p>
   <img src="https://img.shields.io/badge/Python-3.10+-000?style=flat-square&logo=python&logoColor=4ade80&labelColor=111" />
   <img src="https://img.shields.io/badge/FastAPI-000?style=flat-square&logo=fastapi&logoColor=4ade80&labelColor=111" />
   <img src="https://img.shields.io/badge/MongoDB-000?style=flat-square&logo=mongodb&logoColor=4ade80&labelColor=111" />
   <img src="https://img.shields.io/badge/Gemini_2.0-000?style=flat-square&logo=google&logoColor=4ade80&labelColor=111" />
-  <img src="https://img.shields.io/badge/License-ISC-000?style=flat-square&labelColor=111" />
+  <img src="https://img.shields.io/badge/License-MIT-000?style=flat-square&labelColor=111" />
 </p>
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&pause=2000&color=6B7280&center=true&vCenter=true&repeat=true&width=500&lines=FastAPI+%2B+WebSocket+%2B+Gemini+2.0+Flash;Voice+I%2FO+%E2%80%94+TTS+%2B+STT;Smart+Reminders+with+AI+follow-up;JWT+Auth+%2B+MongoDB+%2B+Motor" alt="Typing SVG" />
+
+[Overview](#overview) · [Features](#-features) · [Stack](#tech-stack) · [Quickstart](#-quick-start) · [Structure](#project-structure) · [API](#api-overview) · [How It Works](#how-it-works) · [Security](#security)
 
 </div>
 
 ---
 
-## 🧭 Overview
+## Overview
 
 A voice-first AI chat server. Users connect over WebSocket, send text or voice, and receive AI-generated responses as both text and synthesized audio. Reminders can be scheduled with natural language and trigger at a specific datetime with a follow-up AI message.
 
@@ -31,7 +32,7 @@ A voice-first AI chat server. Users connect over WebSocket, send text or voice, 
 
 ---
 
-## ✦ Core Features
+## ✨ Features
 
 **💬 Real-time Chat**
 - WebSocket-based streaming — text response first, audio URL follows
@@ -55,31 +56,29 @@ A voice-first AI chat server. Users connect over WebSocket, send text or voice, 
 
 ---
 
-## 🧰 Tech Stack
+## Tech Stack
 
-| Component | Choice | Why |
-|---|---|---|
-| **ASGI Server** | Uvicorn | Fast async event loop for WebSocket handling |
-| **Framework** | FastAPI | Type-safe routing, auto OpenAPI docs, dependency injection |
-| **Database** | MongoDB + Motor | Async driver for non-blocking queries |
-| **AI** | Gemini 2.0 Flash | Fast, cheap, reliable for conversational AI |
-| **TTS** | ElevenLabs | Natural-sounding voices, streaming API |
-| **STT** | SpeechRecognition | Google STT wrapper — requires WAV input |
-| **JWT** | python-jose | HS256 signing with bcrypt password hashing |
+```
+ASGI Server    Uvicorn       Fast async event loop for WebSocket handling
+Framework      FastAPI       Type-safe routing, auto OpenAPI docs, DI
+Database       MongoDB       Motor async driver for non-blocking queries
+AI             Gemini 2.0    Fast, cheap, reliable conversational AI
+TTS            ElevenLabs    Natural-sounding voices, streaming API
+STT            SpeechRecog   Google STT wrapper — requires WAV input
+Auth           python-jose   HS256 JWT signing + bcrypt password hashing
+```
 
 ---
 
 ## ⚡ Quick Start
 
 **1 — Clone & enter**
-
 ```bash
 git clone https://github.com/EzAkshat/Nuera_backend.git
 cd Nuera_backend/server
 ```
 
 **2 — Create virtual environment**
-
 ```bash
 python -m venv venv
 
@@ -91,13 +90,11 @@ venv\Scripts\activate
 ```
 
 **3 — Install dependencies**
-
 ```bash
 pip install -r requirements.txt
 ```
 
 **4 — Create audio directory**
-
 ```bash
 # Mac / Linux
 mkdir -p static/audio
@@ -107,7 +104,6 @@ mkdir static\audio
 ```
 
 **5 — Configure** — create `server/.env`
-
 ```env
 GEMINI_API_KEY=your_gemini_key
 ELEVENLABS_API_KEY=your_elevenlabs_key
@@ -117,7 +113,6 @@ MONGO_URI=mongodb://localhost:27017
 ```
 
 **6 — Run**
-
 ```bash
 uvicorn main:app --reload --port 8000
 ```
@@ -129,7 +124,7 @@ Docs    →  http://localhost:8000/docs
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 server/
@@ -146,7 +141,7 @@ server/
 
 ---
 
-## 🔌 API Overview
+## API Overview
 
 ### REST Endpoints
 
@@ -172,7 +167,7 @@ server/
 
 ---
 
-## 🔄 How It Works
+## How It Works
 
 ### 💬 Chat Flow
 
@@ -203,8 +198,6 @@ server/
   Client
 ```
 
----
-
 ### ⏰ Reminder Scheduling
 
 ```
@@ -223,8 +216,6 @@ server/
     │
     └──► broadcast over /ws/reminders to user
 ```
-
----
 
 ### 🎙️ Voice Transcription
 
@@ -249,7 +240,7 @@ server/
 
 ---
 
-## 🛡️ Security
+## Security
 
 | Layer | Implementation |
 |---|---|
@@ -264,19 +255,25 @@ server/
 
 ---
 
-## 🔮 Roadmap
+## Roadmap
 
-- Rate limiting on chat and reminder endpoints (`slowapi`)
-- Multi-turn context window for memory-aware replies
-- Audio file TTL cleanup for `static/audio/`
-- Redis-backed WebSocket manager for horizontal scaling
-- Refresh token rotation
-- Pytest integration tests
-- Docker + `docker-compose` setup
+- [ ] Rate limiting on chat and reminder endpoints (`slowapi`)
+- [ ] Multi-turn context window for memory-aware replies
+- [ ] Audio file TTL cleanup for `static/audio/`
+- [ ] Redis-backed WebSocket manager for horizontal scaling
+- [ ] Refresh token rotation
+- [ ] Pytest integration tests
+- [ ] Docker + `docker-compose` setup
 
 ---
 
-## 👤 Author
+## License
+
+This project is licensed under the [MIT License](./LICENSE).
+
+---
+
+## Author
 
 **Akshat Naik**
 
