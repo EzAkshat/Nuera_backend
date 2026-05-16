@@ -1,15 +1,5 @@
 <div align="center">
 
-<p>
-  <img src="https://img.shields.io/badge/Python-3.10+-000?style=flat-square&logo=python&logoColor=4ade80&labelColor=111" />
-  <img src="https://img.shields.io/badge/FastAPI-000?style=flat-square&logo=fastapi&logoColor=4ade80&labelColor=111" />
-  <img src="https://img.shields.io/badge/MongoDB-000?style=flat-square&logo=mongodb&logoColor=4ade80&labelColor=111" />
-  <img src="https://img.shields.io/badge/Gemini_2.0-000?style=flat-square&logo=google&logoColor=4ade80&labelColor=111" />
-  <img src="https://img.shields.io/badge/License-ISC-000?style=flat-square&labelColor=111" />
-</p>
-
-
-
 # 🚀 Nuera Backend
 
 **Real-time AI chat backend with voice capabilities**
@@ -18,6 +8,14 @@
 
 
 [Overview](#-overview) · [Features](#-core-features) · [Stack](#-tech-stack) · [Quickstart](#-quick-start) · [Structure](#-project-structure) · [API](#-api-overview) · [How It Works](#-how-it-works) · [Security](#️-security)
+
+<p>
+  <img src="https://img.shields.io/badge/Python-3.10+-000?style=flat-square&logo=python&logoColor=4ade80&labelColor=111" />
+  <img src="https://img.shields.io/badge/FastAPI-000?style=flat-square&logo=fastapi&logoColor=4ade80&labelColor=111" />
+  <img src="https://img.shields.io/badge/MongoDB-000?style=flat-square&logo=mongodb&logoColor=4ade80&labelColor=111" />
+  <img src="https://img.shields.io/badge/Gemini_2.0-000?style=flat-square&logo=google&logoColor=4ade80&labelColor=111" />
+  <img src="https://img.shields.io/badge/License-ISC-000?style=flat-square&labelColor=111" />
+</p>
 
 </div>
 
